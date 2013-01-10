@@ -2,5 +2,9 @@ package web
 
 class DummyController {
 
-    def index() { }
+    def index() { 
+		render(contentType: "text/json") {
+		    book(title: 'title', author: 'author')
+		}
+    }
 }
