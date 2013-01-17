@@ -9,8 +9,9 @@ class BootStrap {
 
         customObjectMarshallers.register()
 
-        new Book(title:  'truc', author: 'muche').save()
+        new Book(title: 'Fifty shades of grey', author: 'Erika Leonard James').save()
     }
+
     def destroy = {
     }
 }
