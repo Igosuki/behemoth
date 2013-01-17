@@ -1,7 +1,5 @@
 class UrlMappings {
 
-    static verbsToActions = [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
-
     static mappings = {
 
         "/$controller/$action?/$id?" {
@@ -10,9 +8,8 @@ class UrlMappings {
             }
         }
 
-        "/book/$id?"(controller: 'book') {
-            action = [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
-        }
+        // 'resource' maps [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
+        "/book/$id?"(resource: 'book')
 
         '/'(view: '/index')
 
