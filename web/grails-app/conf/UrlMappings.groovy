@@ -1,18 +1,21 @@
 class UrlMappings {
 
-	static mappings = {
-		"/$controller/$action?/$id?" {
-			
-			// REST API ?
-			// action = [GET:'show', PUT:'update', DELETE:'delete', POST:'save']
-			
-			constraints {
-				// apply constraints here
-			}
-		}
+    static verbsToActions = [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
 
-		'/'(view:'/index')
+    static mappings = {
 
-		'500'(view:'/error')
-	}
+        "/$controller/$action?/$id?" {
+            constraints {
+                // apply constraints here
+            }
+        }
+
+        "/book/$id?"(controller: 'book') {
+            action = [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
+        }
+
+        '/'(view: '/index')
+
+        '500'(view: '/error')
+    }
 }
