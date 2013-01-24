@@ -21,6 +21,7 @@ grails {
 apply plugin: 'nexus'
 
 nexus {
+    sign = false
     repositoryUrl = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
     snapshotRepositoryUrl = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
 }
