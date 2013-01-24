@@ -1,12 +1,14 @@
 apply plugin: 'java'
 
+version = "1.0-SNAPSHOT"
+
 buildscript {
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath 'com.connorgarvey.gradle:gradle-grails-wrapper:1.0'
-	classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.2'
+	    classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.2'
     }
 }
 
@@ -15,6 +17,10 @@ apply plugin: 'grails'
 
 grails {
     version '2.2.0'
+}
+
+task grailsSetVersion << {
+    tasks.grails-set-version("$version")
 }
 
 //Upload the produced artefact to nexus
@@ -32,14 +38,7 @@ apply plugin: 'maven'
 task writeNewPom << {
     pom {
         project {
-            inceptionYear '2008'
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
+            version: "$version"
         }
     }.writeTo("$buildDir/newpom.xml")
 }
