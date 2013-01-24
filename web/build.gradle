@@ -37,8 +37,6 @@ apply plugin: 'maven'
 
 task writeNewPom << {
     pom {
-        project {
-            version: "$version"
-        }
+        packaging 'war'
     }.writeTo("$buildDir/newpom.xml")
 }
