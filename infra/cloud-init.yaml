@@ -1,0 +1,18 @@
+#cloud-config
+
+timezone: Europe/Paris
+
+packages:
+ - ruby
+ - pciutils
+ - libselinux-utils
+ - rubygems
+ - dmidecode
+ - libselinux-ruby
+ - ruby-augeas
+
+runcmd:
+ - [ rpm, -ivh, "http://yum.puppetlabs.com/el/6/products/i386/puppetlabs-release-6-6.noarch.rpm" ]
+ - [ yum, install , puppet, --disablerepo=*, --enablerepo=puppetlabs-products, --enablerepo=puppetlabs-deps, -y ]
+ - [ sh, -xc, "echo 'server=puppet-behemot.aws.xebiatechevent.info' >> /etc/puppet/puppet.conf" ]
+ - [service, puppet, start]
