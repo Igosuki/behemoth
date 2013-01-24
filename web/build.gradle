@@ -4,12 +4,39 @@ buildscript {
     }
     dependencies {
         classpath 'com.connorgarvey.gradle:gradle-grails-wrapper:1.0'
+	classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.2'
     }
 }
+
+//Grails conf, able to use any grails command through this
 apply plugin: 'grails'
 
 grails {
     version '2.2.0'
 }
 
-//Deploiement sur nexus : https://github.com/bmuschko/gradle-nexus-plugin
+//Upload the produced artefact to nexus
+apply plugin: 'nexus'
+
+nexus {
+    repositoryUrl = http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/
+    snapshotRepositoryUrl = http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/
+}
+
+//Maven to use 'uploadArchives'
+apply plugin: 'maven'
+
+task writeNewPom << {
+    pom {
+        project {
+            inceptionYear '2008'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("$buildDir/newpom.xml")
+}
