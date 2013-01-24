@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
 version = "1.0-SNAPSHOT"
-
+archiveTask.extension = "war"
 buildscript {
     repositories {
         mavenCentral()
