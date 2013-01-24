@@ -10,11 +10,21 @@ grails.project.source.level = 1.6
 //grails.project.fork = [
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
-grails.project.dependency.distribution = {
-     def credentials = [username: "admin", password: "admin123"]
-     remoteRepository(id:"release", url:"http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/") { authentication admin }
-     remoteRepository(id:"snapshots", url:"http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/") { authentication admin }
-}
+
+grals.project.repos.default = "release"
+
+def credentials = [username: "admin", password: "admin123"]
+grails.project.repos.release.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
+grails.project.repos.release.type = "maven"
+grails.project.repos.release.username = credentials.username
+grails.project.repos.release.password = credentials.password
+     
+     
+grails.project.repos.snapshots.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
+grails.project.repos.snapshots.type = "maven"
+grails.project.repos.snapshots.username = credentials.username
+grails.project.repos.snapshots.password = credentials.password
+ 
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -62,6 +72,8 @@ grails.project.dependency.resolution = {
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
+
+        compile(":release:2.2.0") 
 
         build ":tomcat:$grailsVersion"
 

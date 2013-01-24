@@ -1,6 +1,4 @@
-apply plugin: 'java'
-
-version = "1.0-SNAPSHOT"
+version = "0.1"
 
 buildscript {
     repositories {
@@ -16,31 +14,5 @@ buildscript {
 apply plugin: 'grails'
 
 grails {
-    version '2.2.0'
-}
-
-task grailsSetVersion << {
-    tasks["grails-set-version"].execute()
-}
-
-//Upload the produced artefact to nexus
-apply plugin: 'nexus'
-
-nexus {
-    sign = false
-    repositoryUrl = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
-    snapshotRepositoryUrl = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
-}
-
-//Maven to use 'uploadArchives'
-apply plugin: 'maven'
-
-uploadArchives {
-    repositories {
-       mavenDeployer {
-             pom.version = "1.0-SNAPSHOT"
-             pom.artifactId = "simple-project"
-             pom.groupId = "com.example"
-       }
-    }
+    version 2.2.0
 }

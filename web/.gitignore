@@ -20,3 +20,4 @@ stacktrace.log
 .idea
 .project
 .classpath
+build
