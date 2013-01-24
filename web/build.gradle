@@ -19,8 +19,8 @@ grails {
 apply plugin: 'nexus'
 
 nexus {
-    repositoryUrl = http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/
-    snapshotRepositoryUrl = http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/
+    repositoryUrl = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
+    snapshotRepositoryUrl = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
 }
 
 //Maven to use 'uploadArchives'
