@@ -10,6 +10,11 @@ grails.project.source.level = 1.6
 //grails.project.fork = [
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
+grails.project.dependency.distribution = {
+     def credentials = [username: "admin", password: "admin123"]
+     remoteRepository(id:"release", url:"http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/") { authentication admin }
+     remoteRepository(id:"snapshots", url:"http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/") { authentication admin }
+}
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
