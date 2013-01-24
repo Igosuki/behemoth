@@ -20,7 +20,7 @@ grails {
 }
 
 task grailsSetVersion << {
-    tasks.grails-set-version("$version")
+    tasks["grails-set-version"].execute()
 }
 
 //Upload the produced artefact to nexus
