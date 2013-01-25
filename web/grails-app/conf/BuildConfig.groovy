@@ -11,16 +11,16 @@ grails.project.source.level = 1.6
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
 
-grals.project.repos.default = "release"
+grails.project.repos.default = "release"
 
 def credentials = [username: "admin", password: "admin123"]
 grails.project.repos.release.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
 grails.project.repos.release.type = "maven"
-grails.project.repos.release.username = credentials.username
-grails.project.repos.release.password = credentials.password
+grails.project.repos.release.username = "admin"
+grails.project.repos.release.password = "admin123"
      
      
-grails.project.repos.snapshots.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
+grails.project.repos.snapshots.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
 grails.project.repos.snapshots.type = "maven"
 grails.project.repos.snapshots.username = credentials.username
 grails.project.repos.snapshots.password = credentials.password
