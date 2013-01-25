@@ -11,11 +11,16 @@ grails.project.source.level = 1.6
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
 
-grails.project.repos.default = "releases"
+grails.project.repos.default = "snapshots"
 grails.project.dependency.distribution = {
     remoteRepository(id: "releases", url: "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/") {
         authentication username : "admin", password : "admin123"
     }  
+}
+grails.project.dependency.distribution = {
+    remoteRepository(id: "snapshots", url: "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/") {
+        authentication username : "admin", password : "admin123"
+    }
 }
 
 grails.project.dependency.resolution = {
