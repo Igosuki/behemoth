@@ -12,17 +12,11 @@ grails.project.source.level = 1.6
 //]
 
 grails.project.repos.default = "releases"
-
-def credentials = [username: "admin", password: "admin123"]
-grails.project.repos.releases.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
-grails.project.repos.snapshots.username = credentials.username
-grails.project.repos.snapshots.password = credentials.password
-     
-     
-grails.project.repos.snapshots.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
-grails.project.repos.snapshots.username = credentials.username
-grails.project.repos.snapshots.password = credentials.password
- 
+grails.project.dependency.distribution = {
+    remoteRepository(id: "releases", url: "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/") {
+        authentication username : "admin", password : "admin123"
+    }  
+}
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
