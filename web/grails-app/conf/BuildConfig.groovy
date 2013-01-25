@@ -15,13 +15,11 @@ grails.project.repos.default = "releases"
 
 def credentials = [username: "admin", password: "admin123"]
 grails.project.repos.releases.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
-grails.project.repos.releases.type = "maven"
 grails.project.repos.snapshots.username = credentials.username
 grails.project.repos.snapshots.password = credentials.password
      
      
 grails.project.repos.snapshots.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
-grails.project.repos.snapshots.type = "maven"
 grails.project.repos.snapshots.username = credentials.username
 grails.project.repos.snapshots.password = credentials.password
  
