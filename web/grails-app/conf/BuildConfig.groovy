@@ -11,13 +11,13 @@ grails.project.source.level = 1.6
 //   run: [maxMemory:1024, minMemory:64, debug:false, maxPerm:256]
 //]
 
-grails.project.repos.default = "release"
+grails.project.repos.default = "releases"
 
 def credentials = [username: "admin", password: "admin123"]
-grails.project.repos.release.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
-grails.project.repos.release.type = "maven"
-grails.project.repos.release.username = "admin"
-grails.project.repos.release.password = "admin123"
+grails.project.repos.releases.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/releases/"
+grails.project.repos.releases.type = "maven"
+grails.project.repos.snapshots.username = credentials.username
+grails.project.repos.snapshots.password = credentials.password
      
      
 grails.project.repos.snapshots.url = "http://behemot-ci.aws.xebiatechevent.info:8081/nexus/content/repositories/snapshots/"
@@ -58,7 +58,7 @@ grails.project.dependency.resolution = {
 
         // for logback when plugin fixed
         //compile 'org.grails.plugins:logback:0.1.1'
-
+        build("org.apache.maven:maven-ant-tasks:2.1.0")
         //runtime 'mysql:mysql-connector-java:5.1.20'
     }
 
@@ -73,7 +73,9 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        compile(":release:2.2.0") 
+        build(":release:2.2.0") {
+            exclude 'maven-ant-tasks'
+        }
 
         build ":tomcat:$grailsVersion"
 
