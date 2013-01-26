@@ -7,6 +7,5 @@ class Book {
     String author
 
     static constraints = {
-
     }
 }

@@ -11,6 +11,9 @@ class UrlMappings {
         // 'resource' maps [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
         "/book/$id?"(resource: 'book')
 
+
+        "/index/$domainClass"(controller: "index", action: "index")
+
         '/'(view: '/index')
 
         '500'(view: '/error')

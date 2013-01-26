@@ -11,7 +11,7 @@ class BookController {
      */
     def show() {
         def result
-        if (params.id) {
+        if (params.id && params.id != "list") {
             result = Book.get(params.id)
         } else {
             result = Book.list()
