@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 
     <r:require module="angular-scaffolding"/>
-    <r:require modules="bootstrap"/>s
+    <r:require modules="bootstrap"/>
 </head>
 
 <body data-ng-app="scaffolding" data-base-url="${createLink(uri: '/book/')}">
