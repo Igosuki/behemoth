@@ -116,6 +116,14 @@
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 					</g:each>
 				</ul>
+                <h2>Available Views :</h2>
+                <ul>
+                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+                        <g:if test="${c.logicalPropertyName != "index"}">
+                            <li class="controller"><g:link controller="index/${c.logicalPropertyName}">${c.logicalPropertyName}</g:link></li>
+                        </g:if>
+                    </g:each>
+                </ul>
 			</div>
 		</div>
 	</body>

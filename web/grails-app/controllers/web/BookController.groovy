@@ -11,10 +11,12 @@ class BookController {
      */
     def show() {
         def result
+        params.max = Math.min(params.max ? params.int('max') : 5, 100)
         if (params.id && params.id != "list") {
             result = Book.get(params.id)
         } else {
-            result = Book.list()
+            result = Book.list(params)
+            response.setIntHeader('X-Pagination-Total', Book.count())
         }
 
         if (!result) {
