@@ -4,18 +4,13 @@
 <html>
 <head>
     <meta name="layout" content="ng-app">
-    <g:set var="entityName" value="${message(code: 'book.label', default: 'Book')}"/>
-    <title><g:message code="default.list.label" args="[entityName]"/></title>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 
-    <r:require module="angular-scaffolding"/>
-    <r:require modules="bootstrap"/>
+    <g:set var="entityName" value="${message(code: 'book.label', default: 'Book')}"/>
+
+
 </head>
 
-<body data-ng-app="scaffolding" data-base-url="${createLink(uri: '/book/')}">
-<a href="#list-book" class="skip" tabindex="-1"><g:message code="default.link.skip.label"
-                                                                                  default="Skip to content&hellip;"/></a>
+<body data-ng-app="book" data-base-url="${createLink(uri: '/book/')}">
 
 <div class="nav" role="navigation">
     <ul>
@@ -27,5 +22,6 @@
 
 <div class="content" role="main" data-ng-view>
 </div>
+
 </body>
 </html>

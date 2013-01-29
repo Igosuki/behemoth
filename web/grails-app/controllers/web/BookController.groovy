@@ -92,4 +92,8 @@ class BookController {
             return render(status: 500)
         }
     }
+
+    def app() {
+
+    }
 }

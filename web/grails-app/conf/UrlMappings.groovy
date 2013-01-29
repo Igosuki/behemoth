@@ -9,6 +9,7 @@ class UrlMappings {
         }
 
         // 'resource' maps [GET: 'show', PUT: 'update', DELETE: 'delete', POST: 'save']
+        "/book/app"(controller: 'book', action: 'app')
         "/book/$id?"(resource: 'book')
 
 
