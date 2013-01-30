@@ -7,13 +7,13 @@ def allJsUnder(path) {
     def servletContext = SCH.getServletContext()
 
 //context isn't present when testing in integration mode. -jg
-    if(!servletContext) return webFileCachePaths
+    if (!servletContext) return webFileCachePaths
 
     def realPath = servletContext.getRealPath('/')
 
     def appDir = new File("$realPath/$path")
 
-    appDir.eachFileRecurse {File file ->
+    appDir.eachFileRecurse { File file ->
         if (file.isDirectory()) return
         webFileCachePaths << file.path.replace(realPath, '')
     }
@@ -27,11 +27,17 @@ modules = {
 
         dependsOn('bootstrap-responsive-css')
 
-        resource url:'css/app.css'
+        resource url: 'css/app.css'
 
-        resource url:'js/angular.min.js'
+        resource url: 'js/angular.min.js'
+        resource url: 'js/angular-resource.min.js'
 
-        allJsUnder('/js/ng').each {
+        resource url: 'js/ng/module.js'
+
+        allJsUnder('/js/ng/services').each {
+            resource url: it
+        }
+        allJsUnder('/js/ng/controllers').each {
             resource url: it
         }
     }
