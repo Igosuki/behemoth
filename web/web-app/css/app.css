@@ -1,21 +1,32 @@
-body {
-	margin-top:60px;
-
+@font-face {
+    font-family: 'SimranITCStd';
+    src: url('fonts/simranitcstd.eot');
+    src: url('fonts/simranitcstd.eot?#iefix') format('embedded-opentype'),
+    url('fonts/simranitcstd.woff') format('woff'),
+    url('fonts/simranitcstd.ttf') format('truetype'),
+    url('fonts/simranitcstd.svg#simranitcstd') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-img.logo {
-    height: 30px;
-    padding-bottom: 0;
+body {
+	margin-top:60px;
+}
+
+
+.simran {
+    font-family: 'SimranITCStd';
 }
 
 .navbar .brand {
-    padding-bottom: 0px;
     cursor: pointer;
 }
 
 .navbar {
 	position: absolute;
 }
+
+
 
 .home-top-title {
 	color: #fff;
