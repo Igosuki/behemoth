@@ -63,12 +63,19 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+
 environments {
     development {
         grails.logging.jul.usebridge = true
+        tomcat.deploy.username="behemoth"
+        tomcat.deploy.password="behemoth"
+        tomcat.deploy.url="http://behemoth-tomcat-dev-1.aws.xebiatechevent.info:8080/manager/text"
     }
     production {
         grails.logging.jul.usebridge = false
+        tomcat.deploy.username="behemoth"
+        tomcat.deploy.password="behemoth"
+        tomcat.deploy.url="http://behemoth-tomcat-prod-1.aws.xebiatechevent.info:8080/manager/text"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
