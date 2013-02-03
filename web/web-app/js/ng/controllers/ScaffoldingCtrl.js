@@ -42,7 +42,7 @@ function ShowCtrl($scope, $routeParams, $location, Grails, Flash) {
     $scope.delete = function(item) {
         item.$delete(function(response) {
             Flash.success(response.message);
-            $location.path('/list');
+            $location.path($routeParams.domain+'/list');
         }, errorHandler.curry($scope, $location, Flash));
     };
 }
@@ -66,14 +66,14 @@ function EditCtrl($scope, $routeParams, $location, Grails, Flash) {
     $scope.update = function(item) {
         item.$update(function(response) {
             Flash.success(response.message);
-            $location.path('/show/' + response.id);
+            $location.path($routeParams.domain+'/show/' + response.id);
         }, errorHandler.curry($scope, $location, Flash));
     };
 
     $scope.delete = function(item) {
         item.$delete(function(response) {
             Flash.success(response.message);
-            $location.path('/list');
+            $location.path($routeParams.domain+'/list');
         }, errorHandler.curry($scope, $location, Flash));
     };
 }
