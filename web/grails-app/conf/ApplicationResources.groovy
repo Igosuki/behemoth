@@ -26,11 +26,18 @@ modules = {
     application {
 
         dependsOn('bootstrap-responsive-css')
+        dependsOn('bootstrap-modal')
 
         resource url: 'css/app.css'
 
         resource url: 'js/angular.min.js'
         resource url: 'js/angular-resource.min.js'
+
+        dependsOn 'jquery, jquery-ui'
+
+        allJsUnder('/js/ng/ui').each {
+            resource url: it
+        }
 
         resource url: 'js/ng/module.js'
 
@@ -40,5 +47,6 @@ modules = {
         allJsUnder('/js/ng/controllers').each {
             resource url: it
         }
+        
     }
 }
