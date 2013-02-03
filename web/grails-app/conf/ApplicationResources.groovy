@@ -1,3 +1,4 @@
+import grails.util.GrailsUtil
 import org.codehaus.groovy.grails.web.context.ServletContextHolder as SCH
 
 def allJsUnder(path) {
@@ -21,16 +22,25 @@ def allJsUnder(path) {
     webFileCachePaths
 }
 
+def min = GrailsUtil.isDevelopmentEnv() ? '' : '.min'
+
 modules = {
 
     application {
 
+        dependsOn("jquery")
         dependsOn('bootstrap-responsive-css')
 
         resource url: 'css/app.css'
 
-        resource url: 'js/angular.min.js'
-        resource url: 'js/angular-resource.min.js'
+        resource url: "js/angular${min}.js"
+        resource url: "js/angular-resource${min}.js"
+
+    }
+
+    'angular-resources' {
+
+        dependsOn 'application'
 
         resource url: 'js/ng/module.js'
 
@@ -40,5 +50,8 @@ modules = {
         allJsUnder('/js/ng/controllers').each {
             resource url: it
         }
+
+        //Scaffolding
+        resource url: 'js/ng/scaffolding.js'
     }
 }
