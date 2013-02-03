@@ -18,33 +18,29 @@ Voici la liste des différents serveurs et ce qu'ils contiennent à l'heure actu
 * behemot-ci.aws.xebiatechevent.info : Usine de dev. Contient :
     * Jenkins : http://behemot-ci.aws.xebiatechevent.info:8080
          * Pas d'authentification
-         * Un job qui se connecte au repo git et lance un "gradle grails-war" => OK
+         * Deux jobs pour deployer en dev/prod. Le deploiement en dev se fait à chaque commit. Prod manuel
     * Nexus : http://behemot-ci.aws.xebiatechevent.info:8081/nexus
-         * Non configuré/ non utilisé pour le moment
+         * Configuré mais non utilisé au final
          * Comptes par defaut (admin/admin123)
     * Rundeck : http://behemot-ci.aws.xebiatechevent.info:4440
-         * Configuration en cours (jobs/clefs/etc...)
+         * Configuration Ok des comptes
          * Compte par defaut (admin/admin)
+         * Aucun jobs. Inutile ?
     * Gradle : 
          * installé dans /opt/gradle
-         * Pas de Maven installé (à faire ?)
-* behemot-tomcat-dev-1.xebiatechevent.info :
+         * Utile ?
+* behemoth-tomcat-dev-1.aws.xebiatechevent.info :
     * Possibilité de lancé plusieurs instances de ce type (dev-2...dev-X)
-    * Installation par défaut, configuration en cours. Pas de war déployés auter que ceux par défaut
+    * Installation par défaut (Tomcat7/OpenJDK7). Deploiement à partir du manager
+* behemoth-tomcat-prod-1.aws.xebiatechevent.info :
+    * Idem instance de Dev
+* behemoth-db.aws.xebiatechevent.info:
+    * MongoDB installé et configuré
+    * ElasticSearch installé et configuré
 
 ## TODO
 
 Liste des choses à faire
 
-* [URGENT] Le script startInstances.groovy est buggué à cause de la gestion des dépendances :
-    * Le SDK AWS tire commons-codec 1.3
-    * Le script à besoin de commons-codec 1.7 (pour la gestion des binaires en Base64 du fichier cloud-init)
-    * GrabExclude ne fonctionne comme souhaité à l'heure actuelle
-    * Fonctionne dans IntelliJ en forçant le chargement de toutes les lib (grab artifact, donc commons-codec 1.3 et 1.7) et en supprimant manuellement commons-codec 1.3 dans les propriétés du projet
-* [HIGH] Créer un Job pour builder le WAR et le déployer dans le Nexus
-* Relier toutes les briques entre elles : Jenkins => Nexus => Rundeck => Tomcat(s). Une grande partie du travail est déjà fait
-* Serveurs MongoDB : fait en grande partie mais non déployé
-* Serveurs ElasticSearch : connaissances proche de zéro
-* Autre ?
 
 
