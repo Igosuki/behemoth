@@ -40,13 +40,18 @@ modules = {
         
     }
 
-    'angular-resources' {
+    'angular-ui' {
 
         dependsOn 'application'
 
-        allJsUnder('/js/ng/ui').each {
-            resource url: it
-        }
+        resource url : "/js/ng/ui/angular-ui-ieshiv${min}.js"
+        resource url : "/js/ng/ui/angular-ui${min}.js"
+        resource url : "/js/ng/ui/angular-ui${min}.css"
+    }
+
+    'angular-resources' {
+
+        dependsOn 'application'
 
         resource url: 'js/ng/module.js'
 

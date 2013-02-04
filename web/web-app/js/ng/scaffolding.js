@@ -3,6 +3,8 @@
  */
 var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService', 'ui']);
 
+scaffoldingModule.value('ui.config', {});
+
 /**
  * Route definitions connecting URL fragments to views and controllers.
  */
@@ -22,6 +24,9 @@ scaffoldingModule.config([
         function create(routePathParams) {
             return baseUrl + routePathParams.domain+"/create.html";
         }
+
+        $routeProvider.
+            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController});
 
         $routeProvider.
             when('/:domain/create', {templateUrl: create, controller: CreateCtrl}).

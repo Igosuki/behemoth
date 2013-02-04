@@ -1,1 +1,21 @@
-<div id="mainMap" ng-controller="MapController">This place should have an interactive map</div>
+
+<div id="mainMap">This place should have an interactive map</div>
+
+<!-- Giving the div an id="map_canvas" fix problems with twitter bootstrap affecting
+google maps -->
+<div id="map_canvas" ui-map="myMap" class="map"
+     ui-event="{'map-click': 'mapClick($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
+     ui-options="mapOptions">
+</div>
+
+<script type="text/ng-template" id="pinhead">
+    <div id="pinhead-container" class="transparent-item"><img src="pinhead" /></div>
+</script>
+
+<style>
+    .map {
+        height: 400px;
+        width: 600px;
+    }
+</style>
+
