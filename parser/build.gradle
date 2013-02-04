@@ -1,18 +1,20 @@
 apply plugin: 'groovy'
 apply plugin: 'application'
 
-mainClassName = "fr.xebia.vsc.Main"
+mainClassName = "fr.xebia.xke.Main"
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    groovy group: 'org.codehaus.groovy', name: 'groovy', version: '2.0.5'
+    groovy group: 'org.codehaus.groovy', name: 'groovy', version: '2.1.0'
     testCompile group: 'org.testng', name: 'testng', version: '6.8'
+
+    compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 test {
     useTestNG()
-    testReport true
 }
