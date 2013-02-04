@@ -42,10 +42,12 @@ scaffoldingModule.config([
 scaffoldingModule.directive('pills', function() {
     var baseUrl = $('body').data('common-template-url');
     return {
-        restrict: 'E', // can only be used as an element
-        transclude: false, // the element should not contain any content so there's no need to transclude
+        restrict: 'A', // can only be used as an element
         scope: {
             text: '@text'
+        },
+        controller: function($scope, $routeParams) {
+            $scope.$routeParams = $routeParams;
         },
         templateUrl: baseUrl + '/pills.html',
         replace: true
@@ -84,7 +86,7 @@ scaffoldingModule.directive('pagination', function() {
             $scope.max = parseInt($routeParams.max) || 10;
             $scope.offset = parseInt($routeParams.offset) || 0;
             $scope.currentPage = Math.ceil($scope.offset / $scope.max);
-
+            $scope.$routeParams = $routeParams;
             $scope.pages = function() {
                 var pages = [];
                 for (var i = 0; i < Math.ceil($scope.total / $scope.max); i++)

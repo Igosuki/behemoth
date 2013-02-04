@@ -17,13 +17,13 @@ environments {
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
 
-        grails {
-            mongo {
-                host = "behemoth-db.aws.xebiatechevent.info"
-                port = 27017
-                databaseName = "behemoth-dev"
-            }
-        }
+//        grails {
+//            mongo {
+//                host = "behemoth-db.aws.xebiatechevent.info"
+//                port = 27017
+//                databaseName = "behemoth-dev"
+//            }
+//        }
     }
     test {
         dataSource {

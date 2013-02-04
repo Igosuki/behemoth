@@ -1,0 +1,38 @@
+
+<div class="page-header">
+	<h1>Edit Author</h1>
+</div>
+<alert level="{{message.level}}" text="{{message.text}}"/>
+<form name="form" data-ng-submit="update(item)" class="form-horizontal">
+	<input type="hidden" data-ng-model="item.id">
+	<input type="hidden" data-ng-model="item.version">
+
+	<div class="control-group" data-ng-class="{error: errors.birthday}">
+		<label class="control-label" for="birthday">Birthday</label>
+		<div class="controls">
+			<input type="text" id="birthday" name="birthday" required data-ng-model="item.birthday">
+			<span class="help-inline" data-ng-show="errors.birthday">{{errors.birthday}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.firstName}">
+		<label class="control-label" for="firstName">First Name</label>
+		<div class="controls">
+			<input type="text" id="firstName" name="firstName" required data-ng-model="item.firstName">
+			<span class="help-inline" data-ng-show="errors.firstName">{{errors.firstName}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.lastName}">
+		<label class="control-label" for="lastName">Last Name</label>
+		<div class="controls">
+			<input type="text" id="lastName" name="lastName" required data-ng-model="item.lastName">
+			<span class="help-inline" data-ng-show="errors.lastName">{{errors.lastName}}</span>
+		</div>
+	</div>
+	
+	<div class="form-actions">
+		<button type="submit" class="btn btn-primary" data-ng-disabled="form.$invalid"><i class="icon-ok"></i> Update</button>
+		<button type="button" class="btn btn-danger" data-ng-click="delete(item)"><i class="icon-trash"></i> Delete</button>
+	</div>
+</form>
