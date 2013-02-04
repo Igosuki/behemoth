@@ -6,15 +6,26 @@ mainClassName = "fr.xebia.xke.Main"
 repositories {
     mavenCentral()
     mavenLocal()
+
+    maven {
+        url 'http://corp.array.ca/nest-web/maven'
+    }
 }
 
 dependencies {
     groovy group: 'org.codehaus.groovy', name: 'groovy', version: '2.1.0'
     testCompile group: 'org.testng', name: 'testng', version: '6.8'
+    //compile group: 'ncsa.hdf', name: 'hdf-natives', version: '2.6.1'
+    //compile group: 'ncsa.hdf', name: 'jhdf5obj', version: '2.6.1'
+    //compile group: 'ncsa.hdf', name: 'lib-hdf', version: '2.7'
+    //compile 'ncsa.hdf:jhdfobj:2.6.1'
+    compile 'org.hdfgroup:hdf-java:2.6.1'
 
-    compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 test {
     useTestNG()
 }
+
+
+
