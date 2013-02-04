@@ -1,12 +1,12 @@
-<ng-include src="'ng-templates/books/pills.html'"></ng-include>
+<ng-include src="'ng-templates/top.html'"></ng-include>
 
 <div class="page-header">
-	<h1>Create Book</h1>
+	<h1>Edit Book</h1>
 </div>
-
 <alert level="{{message.level}}" text="{{message.text}}"/>
-
-<form name="form" data-ng-submit="save(item)" class="form-horizontal">
+<form name="form" data-ng-submit="update(item)" class="form-horizontal">
+	<input type="hidden" data-ng-model="item.id">
+	<input type="hidden" data-ng-model="item.version">
 
 	<div class="control-group" data-ng-class="{error: errors.author}">
 		<label class="control-label" for="author">Author</label>
@@ -25,6 +25,7 @@
 	</div>
 	
 	<div class="form-actions">
-		<button type="submit" class="btn btn-primary" data-ng-disabled="form.$invalid">Create</button>
+		<button type="submit" class="btn btn-primary" data-ng-disabled="form.$invalid"><i class="icon-ok"></i> Update</button>
+		<button type="button" class="btn btn-danger" data-ng-click="delete(item)"><i class="icon-trash"></i> Delete</button>
 	</div>
 </form>

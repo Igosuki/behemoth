@@ -11,7 +11,7 @@ class BookController {
      */
     def show() {
         def result
-        params.max = Math.min(params.max ? params.int('max') : 5, 100)
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
         if (params.id && params.id != "list") {
             result = Book.get(params.id)
         } else {
