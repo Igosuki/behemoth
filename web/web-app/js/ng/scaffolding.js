@@ -1,7 +1,7 @@
 /**
  * The main scaffolding module.
  */
-var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService']);
+var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService', 'ui']);
 
 /**
  * Route definitions connecting URL fragments to views and controllers.
@@ -47,10 +47,25 @@ scaffoldingModule.directive('pills', function() {
             text: '@text'
         },
         controller: function($scope, $routeParams, $location) {
-            $scope.$routeParams = $routeParams;
+            $scope.$domain = $routeParams.domain;
             $scope.$location = $location;
         },
         templateUrl: baseUrl + '/pills.html',
+        replace: true
+    }
+});
+
+/**
+ * A directive for including menu pills
+ */
+scaffoldingModule.directive('modal', function($routeParams) {
+    var baseUrl = $('body').data('common-template-url');
+    return {
+        restrict: 'A', // can only be used as an element
+        controller: function($scope, $routeParams, $location) {
+            $scope.$location = $location;
+        },
+        templateUrl: baseUrl + "/" + $routeParams.domain + '/modal.html',
         replace: true
     }
 });

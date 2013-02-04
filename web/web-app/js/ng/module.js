@@ -1,6 +1,6 @@
 'use strict';
 
-var behemothModule = angular.module('behemoth', ['ngResource'], function ($routeProvider, $locationProvider) {
+var behemothModule = angular.module('behemoth', ['ngResource', 'ui'], function ($routeProvider, $locationProvider) {
 
     $routeProvider.when('/', { templateUrl: 'ng-templates/home.html' });
     $routeProvider.when('/book', { templateUrl: 'ng-templates/book/list.html', controller: BookCtrl });

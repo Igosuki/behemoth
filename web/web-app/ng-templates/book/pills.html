@@ -1,3 +1,16 @@
+
+
+<ul class="nav nav-pills">
+    <li ng-class="{active: $location.path() == '/books'}">
+        <a ng-click="$location.path('/books')">List</a>
+    </li>
+    <li ng-class="{active: $location.path() == '/books/create'}">
+        <a ng-click="$location.path('/books/create')">New Book</a>
+    </li>
+    <li ng-class="{active: modalBookShown}">
+        <a ng-click="modalBookShown=true">New Book Modal</a>
+    </li>
+</ul>
 <ul class="nav nav-pills">
     <li ng-class="{active: $location.path() == '/book'}">
         <a ng-click="$location.path('/book')">List</a>

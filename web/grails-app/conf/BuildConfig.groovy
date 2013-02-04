@@ -63,6 +63,7 @@ grails.project.dependency.resolution = {
         //runtime ":mongodb:1.1.0.GA"
         runtime ':hibernate:2.2.0'
         runtime ":jquery:1.8.3"
+        runtime ":jquery-ui:1.8.24"
         runtime ":resources:1.1.6"
         compile ':mongodb:1.1.0.GA'
 
