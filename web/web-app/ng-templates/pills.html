@@ -1,6 +1,6 @@
 <ul class="nav nav-pills">
-    <li ng-class="{active: $location.path() == '/book'}">
-        <a ng-click="$location.path('/book')">List</a>
+    <li ng-class="{active: $location.path() == '/'+$routeParams.domain || $location.path() == '/'+$routeParams.domain+'/list'}">
+        <a ng-click="$location.path('/'+$routeParams.domain)">List</a>
     </li>
     <li ng-class="{active: $location.path() == '/'+$routeParams.domain+'/create'}">
         <a ng-click="$location.path('/'+$routeParams.domain+'/create')">New {{$routeParams.domain}}</a>

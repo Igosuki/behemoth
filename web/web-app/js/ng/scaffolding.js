@@ -46,8 +46,9 @@ scaffoldingModule.directive('pills', function() {
         scope: {
             text: '@text'
         },
-        controller: function($scope, $routeParams) {
+        controller: function($scope, $routeParams, $location) {
             $scope.$routeParams = $routeParams;
+            $scope.$location = $location;
         },
         templateUrl: baseUrl + '/pills.html',
         replace: true
