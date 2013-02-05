@@ -1,3 +1,5 @@
+import grails.converters.JSON
+import web.Author
 import web.Book
 import web.BookMongo
 import web.json.recipe.CustomObjectMarshallers
@@ -9,6 +11,9 @@ class BootStrap {
     def init = { servletContext ->
 
         customObjectMarshallers.register()
+//        JSON.registerObjectMarshaller(Date) {
+//            return it?.format("dd-MM-yyyy")
+//        }
 
         new Book(title: 'Fifty shades of grey', author: 'Erika Leonard James').save()
         new Book(title: 'Conan the barbarian', author: 'Robert Ervin Howard').save()
@@ -23,6 +28,8 @@ class BootStrap {
         new Book(title: 'Fifty shades of grey', author: 'Erika Leonard James').save()
         new Book(title: 'Conan the barbarian', author: 'Robert Ervin Howard').save()
         new Book(title: 'Neuromancer', author: 'William Gibson').save()
+
+        new Author(firstName: 'William', lastName: 'Gibson', birthday: new Date()).save()
 
         try {
             if (BookMongo.count() == 0) {

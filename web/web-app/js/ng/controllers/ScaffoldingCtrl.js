@@ -10,6 +10,7 @@ function errorHandler($scope, $location, $routeParams, Flash, response) {
         case 409: // optimistic locking failure - display error message on the page
             $scope.message = {level: 'error', text: response.data.message};
             break;
+        case 400:
         case 422: // validation error - display errors alongside form fields
             $scope.errors = response.data.errors;
             break;

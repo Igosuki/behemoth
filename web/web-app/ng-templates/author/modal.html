@@ -1,0 +1,12 @@
+<div id="authorModal" class="fade ng-valid modal hide ng-dirty" ui-modal="" ng-model="modalAuthorShown" style="display: block;">
+    <div class="modal-header"><h1>Create Author</h1></div>
+
+    <form name="form" data-ng-submit="save(item)" class="form-horizontal">
+        <div class="modal-body">
+            <ng-include src="'ng-templates/author/_form.html'"></ng-include>
+        </div>
+        <div class="modal-footer form-actions">
+            <button type="submit" class="btn btn-primary" data-ng-disabled="form.$invalid" ng-click="modalAuthorShown=false">Create</button>
+        </div>
+    </form>
+</div>
