@@ -11,20 +11,24 @@
             function callback(response) {
                if (response.status == 200) {
                     var data = response.responseBody;
-                   alert(data)
                    if (data.length > 0) {
                         try {
                             var msgObj = jQuery.parseJSON(data);
-                            alert(msgObj)
+                            alert(msgObj.user)
+
+
+                            $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
+
                         } catch (e) {
+                            alert("exception : "+e);
                             // Atmosphere sends commented out data to WebKit based browsers
                         }
                     }
                 }
             }
 
-            var location = 'http://localhost:8080/web/atmosphere/allusers/actions';
-            $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
+            var location = '${request.contextPath}/atmosphere/allusers/actions';
+        $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
         });
     </r:script>
 </head>

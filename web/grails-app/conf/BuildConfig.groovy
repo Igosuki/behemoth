@@ -56,6 +56,9 @@ grails.project.dependency.resolution = {
         // for logback when plugin fixed
         //compile 'org.grails.plugins:logback:0.1.1'
         build("org.apache.maven:maven-ant-tasks:2.1.0")
+        compile('org.atmosphere:atmosphere-runtime:1.0.0.beta5') {
+            excludes 'slf4j-api', 'atmosphere-ping'
+        }
         //runtime 'mysql:mysql-connector-java:5.1.20'
     }
 
@@ -66,8 +69,9 @@ grails.project.dependency.resolution = {
         compile ':mongodb:1.1.0.GA'
         compile ":spring-security-core:1.2.7.3"
 
-        compile ":atmosphere:0.4.2.1"
-
+        runtime (":atmosphere:0.4.2.3") {
+            exclude 'atmosphere-runtime'
+        }
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"

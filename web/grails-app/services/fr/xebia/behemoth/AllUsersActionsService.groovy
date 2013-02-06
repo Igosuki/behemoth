@@ -29,7 +29,7 @@ class AllUsersActionsService {
             if (event.isSuspended()) {
                 println 'event suspended'
                 event.resource.response.writer.with {
-                    write "<script>parent.callback('${event.message}');</script>"
+                    write "${event.message}"
                     flush()
                 }
                 event.resume()

@@ -17,6 +17,7 @@ grails.mime.file.extensions = true // enables the parsing of file extensions fro
 // TEAM: I had to change this to build the REST interface
 grails.mime.use.accept.header = true
 
+grails.tomcat.nio=true
 
 grails.mime.types = [
         all: '*/*',
