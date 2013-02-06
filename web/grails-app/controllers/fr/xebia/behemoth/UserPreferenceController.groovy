@@ -1,5 +1,6 @@
 package fr.xebia.behemoth
 
+import grails.converters.JSON
 import web.User
 
 class UserPreferenceController {
@@ -26,9 +27,12 @@ class UserPreferenceController {
         }
 
         def principal = springSecurityService.getPrincipal()
-        println "principal = $principal"
 
-        new UserLike(artist: artist, user: principal).save()
+
+        println "principal = $principal"
+        def user = User.get(principal.id)
+
+        new UserLike(artistId: artist.id, userId: user.id).save()
 
         allUsersActionsService.registerEvent(new AllUsersEvent(springSecurityService.currentUser.username, "a ajouté "+ artist.name, "ARTIST"))
 
@@ -41,6 +45,17 @@ class UserPreferenceController {
         springSecurityService.currentUser.save()
 
         render (status: 200)
+    }
+
+    def myLikes() {
+        def user = User.get(springSecurityService.principal.id)
+        def myLikes = UserLike.findByUserId("${user.id}")
+
+        def myArtists = myLikes.collect {
+            Artist.get(it.artistId)
+        }
+
+render myArtists as JSON
     }
 
 

@@ -4,8 +4,8 @@ import web.User
 
 class UserLike {
 
-    Artist artist
-    User user
+    String artistId
+    String userId
 
     static constraints = {
     }
