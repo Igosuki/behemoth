@@ -2,6 +2,7 @@ package web
 
 import grails.converters.JSON
 import grails.converters.XML
+import grails.plugins.springsecurity.Secured
 import org.springframework.dao.DataIntegrityViolationException
 
 class AuthorController {
@@ -9,6 +10,7 @@ class AuthorController {
     /**
      * Bound to GET
      */
+    @Secured("IS_AUTHENTICATED_FULLY")
     def show() {
         def result
         params.max = Math.min(params.max ? params.int('max') : 10, 100)

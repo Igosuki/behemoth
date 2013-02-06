@@ -1,30 +1,29 @@
 <div id="login" data-login-app>
     <div id="login-holder">
-        <div id="login-inner" ng-controller="LoginController">
+        <div id="login-inner" class="navbar-form pull-right">
             <form id='loginForm' class='cssform' data-ng-submit="submit()">
                 <div class="control-group" data-ng-class="{error: errors.j_username}">
                     <label class="control-label" for="j_username">Username</label>
                     <div class="controls">
                         <input type="text" id="j_username" name="j_username" required data-ng-model="item.j_username">
-                        <span class="help-inline" data-ng-show="errors.j_username">{{errors.j_username}}</span>
+                        <!--<span class="help-inline" data-ng-show="errors.j_username">{{errors.j_username}}</span> -->
                     </div>
                 </div>
                 <div class="control-group" data-ng-class="{error: errors.j_password}">
                     <label class="control-label" for="j_password">Password</label>
                     <div class="controls">
                         <input type="password" id="j_password" name="j_password" required data-ng-model="item.j_password">
-                        <span class="help-inline" data-ng-show="errors.j_password">{{errors.j_password}}</span>
+                        <!--<span class="help-inline" data-ng-show="errors.j_password">{{errors.j_password}}</span>-->
                     </div>
                 </div>
                 <div class="control-group" data-ng-class="{error: errors.j_username}">
-                    <label class="control-label" for="j_username">Birthday</label>
+                    <label for='remember_me'>Remember me</label>
                     <div class="controls" id="remember_me_holder">
                         <input type='checkbox' class='chk' name='_spring_security_remember_me' id='remember_me' data-ng-model="item._spring_security_remember_me" />
-                        <label for='remember_me'>Remember me</label>
                     </div>
                 </div>
                 <p>
-                    <input type='submit' id="submit" value='Login'/>
+                    <button type="submit" class="btn btn-primary submit-login" data-ng-disabled="form.$invalid"><i class="icon-ok"></i> Login</button>
                 </p>
             </form>
         </div>

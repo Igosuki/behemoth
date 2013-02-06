@@ -3,11 +3,11 @@ package fr.xebia.behemoth
 import grails.converters.JSON
 import static javax.servlet.http.HttpServletResponse.*
 
-class SongController {
+class SongsController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {}
+    def index() { }
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -15,13 +15,16 @@ class SongController {
         render Song.list(params) as JSON
     }
 
-    def get() {
+    def detail() {
         def songInstance = Song.get(params.id)
         if (songInstance) {
             render songInstance as JSON
         } else {
             notFound params.id
         }
+
+        def service = new AllUsersActionsService()
+        service.registerEvent(new AllUsersEvent('Unknown', 'DETAIL', 'SONG'))
     }
 
     def complete() {

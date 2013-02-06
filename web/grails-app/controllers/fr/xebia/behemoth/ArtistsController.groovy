@@ -3,7 +3,7 @@ package fr.xebia.behemoth
 import grails.converters.JSON
 import static javax.servlet.http.HttpServletResponse.*
 
-class ArtistController {
+class ArtistsController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -16,7 +16,7 @@ class ArtistController {
     }
 
 
-    def get() {
+    def detail() {
         def artistInstance = Artist.get(params.id)
         if (artistInstance) {
             render artistInstance as JSON
