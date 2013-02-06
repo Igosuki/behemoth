@@ -26,9 +26,7 @@ scaffoldingModule.config([
         }
 
         $routeProvider.
-            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController}).
-            when('/login', { templateUrl: baseUrl + 'login.html', controller: LoginController}).
-            when('/author/secured', {templateUrl: baseUrl + 'author/list.html', controller: ListCtrl});
+            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController});
 
         $routeProvider.
             when('/:domain/create', {templateUrl: create, controller: CreateCtrl}).
@@ -167,3 +165,19 @@ Function.prototype.curry = function() {
 }
 
 
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};

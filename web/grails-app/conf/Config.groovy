@@ -113,4 +113,10 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'web.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'web.UserRole'
 grails.plugins.springsecurity.authority.className = 'web.Role'
 grails.plugins.springsecurity.requestMap.className = 'web.Requestmap'
-grails.plugins.springsecurity.securityConfigType = 'Requestmap'
+grails.plugins.springsecurity.securityConfigType = 'InterceptUrlMap'
+
+grails.plugins.springsecurity.interceptUrlMap = [
+        '/*':            ['IS_AUTHENTICATED_FULLY'],
+        '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY']
+]

@@ -21,7 +21,7 @@ function RootCtrl($rootScope, $scope, $route, $routeParams, $location) {
 //    }
 
     $scope.logout = function() {
-        $http.post('web/j_spring_security_logout').success(function() {
+        $http({method: 'POST', url: 'http://localhost:8080/web/j_spring_security_logout'}).success(function() {
             $scope.restrictedContent = [];
         });
     }
