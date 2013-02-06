@@ -29,6 +29,7 @@ scaffoldingModule.config([
             when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController}).
             when('/home', { templateUrl: baseUrl + '/home.html' }).
             when('/search', { templateUrl: baseUrl + '/search.html' }).
+            when('/profile', { templateUrl: baseUrl + '/profile.html' }).
             when('/', {redirectTo: '/home'} ).
             when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController}).
             when('/login', { templateUrl: baseUrl + 'login.html', controller: LoginController}).
