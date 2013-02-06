@@ -2,6 +2,7 @@ import web.json.recipe.AuthorMarshaller
 import web.json.recipe.BookMarshaller
 import web.json.recipe.ArtistMarshaller
 import web.json.recipe.CustomObjectMarshallers
+import web.json.recipe.EventMarshaller
 import web.json.recipe.SongMarshaller
 
 // Place your Spring DSL code here
@@ -11,7 +12,8 @@ beans = {
                 new BookMarshaller(),
                 new AuthorMarshaller(),
                 new ArtistMarshaller(),
-                new SongMarshaller()
+                new SongMarshaller(),
+                new EventMarshaller()
         ]
     }
 }

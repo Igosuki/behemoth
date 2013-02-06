@@ -62,6 +62,7 @@ grails.project.dependency.resolution = {
         }
         compile 'commons-pool:commons-pool:1.6'
         //runtime 'mysql:mysql-connector-java:5.1.20'
+        compile('org.codehaus.groovy.modules.http-builder:http-builder:0.6')
     }
 
     plugins {
