@@ -69,12 +69,12 @@ modules = {
     'angular_fr' {
         dependsOn 'application'
 
-        resource url : "js/ng/18n/angular_fr.js"
+        resource url : "js/ng/i18n/angular_fr.js"
     }
 
     'angular_en' {
         dependsOn 'application'
 
-        resource url : "js/ng/18n/angular_en.js"
+        resource url : "js/ng/i18n/angular_en.js"
     }
 }
