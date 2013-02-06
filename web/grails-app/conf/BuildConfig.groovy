@@ -28,6 +28,7 @@ grails.project.dependency.resolution = {
     inherits("global") {
         // for logback when plugin fixed
         //excludes 'grails-plugin-log4j'
+        excludes 'grails-plugin-hibernate'
     }
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
