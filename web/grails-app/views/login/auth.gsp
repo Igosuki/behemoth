@@ -12,7 +12,7 @@
             <input type="text" name='j_username' id='username'
                    placeholder="<g:message code="springSecurity.login.username.label"/>">
 
-            <input type="text" name='j_password' id='password'
+            <input type="password" name='j_password' id='password'
                    placeholder="<g:message code="springSecurity.login.password.label"/>">
 
             <label class="checkbox">
