@@ -3,7 +3,7 @@ package fr.xebia.behemoth
 import grails.converters.JSON
 import static javax.servlet.http.HttpServletResponse.*
 
-class SongController {
+class SongsController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
