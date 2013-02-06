@@ -59,6 +59,7 @@ grails.project.dependency.resolution = {
         compile('org.atmosphere:atmosphere-runtime:1.0.0.beta5') {
             excludes 'slf4j-api', 'atmosphere-ping'
         }
+        compile 'commons-pool:commons-pool:1.6'
         //runtime 'mysql:mysql-connector-java:5.1.20'
     }
 
@@ -68,6 +69,7 @@ grails.project.dependency.resolution = {
         runtime ":resources:1.1.6"
         compile ':mongodb:1.1.0.GA'
         compile ":spring-security-core:1.2.7.3"
+
 
         runtime (":atmosphere:0.4.2.3") {
             exclude 'atmosphere-runtime'
@@ -85,7 +87,7 @@ grails.project.dependency.resolution = {
 
         compile ":twitter-bootstrap:2.2.2"
         compile ":angular-scaffolding:1.0-SNAPSHOT"
-        runtime ":database-migration:1.2.1"
+        //runtime ":database-migration:1.2.1"
 
         compile ':cache:1.0.1'
     }
