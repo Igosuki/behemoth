@@ -37,9 +37,6 @@ modules = {
 
         resource url: "js/angular${min}.js"
         resource url: "js/angular-resource${min}.js"
-
-
-        
     }
 
     'angular-ui' {

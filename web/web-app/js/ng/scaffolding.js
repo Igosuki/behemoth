@@ -26,18 +26,21 @@ scaffoldingModule.config([
         }
 
         $routeProvider.
-            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController});
-
-        $routeProvider.
+            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController}).
+            when('/home', { templateUrl: baseUrl + '/home.html' }).
+            when('/search', { templateUrl: baseUrl + '/search.html' }).
+            when('/', {redirectTo: '/home'} ).
+            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController}).
+            when('/login', { templateUrl: baseUrl + 'login.html', controller: LoginController}).
+            otherwise({redirectTo: '/'});
+        /*
+            when('/author/secured', {templateUrl: baseUrl + 'author/list.html', controller: ListCtrl}).
             when('/:domain/create', {templateUrl: create, controller: CreateCtrl}).
             when('/:domain/edit/:id', {templateUrl: edit, controller: EditCtrl}).
             when('/:domain/list', {templateUrl: list, controller: ListCtrl}).
-            when('/:domain/show/:id', {templateUrl: show, controller: ShowCtrl});
-        $routeProvider.
-            when('/home', { templateUrl: baseUrl + '/home.html' }).
-            when('/:domain', {templateUrl: list, controller: ListCtrl}).
-            when('/', { templateUrl: baseUrl + '/home.html' }).
-            otherwise({redirectTo: '/'});
+            when('/:domain/show/:id', {templateUrl: show, controller: ShowCtrl}).
+            */
+
     }
 ]);
 
