@@ -1,7 +1,7 @@
 /**
  * The main scaffolding module.
  */
-var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService', 'ui', 'ngCookies']);
+var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService', 'ui', 'ngCookies', 'http-auth-interceptor']);
 
 scaffoldingModule.value('ui.config', {});
 
@@ -26,7 +26,9 @@ scaffoldingModule.config([
         }
 
         $routeProvider.
-            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController});
+            when('/map', { templateUrl: baseUrl + 'imap/active_map.html', controller: MapController}).
+            when('/login', { templateUrl: baseUrl + 'login.html', controller: LoginController}).
+            when('/author/secured', {templateUrl: baseUrl + 'author/list.html', controller: ListCtrl});
 
         $routeProvider.
             when('/:domain/create', {templateUrl: create, controller: CreateCtrl}).
