@@ -15,6 +15,10 @@ class User {
     boolean accountLocked
     boolean passwordExpired
 
+    // Song specifics
+    def favouriteArtists = [] as Set
+    def badges = [:]
+
     static constraints = {
         username blank: false, unique: true
         password blank: false

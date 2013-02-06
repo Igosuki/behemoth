@@ -2,6 +2,7 @@ package fr.xebia.behemoth
 
 class BadgeService {
 
+    def springSecurityService
 
 
     def checkBadgeOnAdd(Artist artist) {
@@ -13,13 +14,13 @@ class BadgeService {
 
         artist.terms.each { term ->
             if (term.freq > 0.9) {
-               int badgeCount = user.badges.get(term.name)?:0
+               int badgeCount = springSecurityService.currentUser.badges.get(term.name)?:0
 
                if (badgeCount==2){
                    // AddNewBadge
                }
                 badgeCount += 1
-                user.badges.put(term.name, badgeCount)
+                springSecurityService.currentUser.badges.put(term.name, badgeCount)
             }
             newBadges << term.name
         }
