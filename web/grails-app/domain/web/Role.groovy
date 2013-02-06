@@ -2,6 +2,8 @@ package web
 
 class Role {
 
+    static mapWith = "mongo"
+
     String authority
 
     static mapping = {

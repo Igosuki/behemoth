@@ -65,4 +65,16 @@ modules = {
         //Scaffolding
         resource url: 'js/ng/scaffolding.js'
     }
+
+    'angular_fr' {
+        dependsOn 'application'
+
+        resource url : "js/ng/18n/angular_fr.js"
+    }
+
+    'angular_en' {
+        dependsOn 'application'
+
+        resource url : "js/ng/18n/angular_en.js"
+    }
 }

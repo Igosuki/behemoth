@@ -4,6 +4,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder
 
 class UserRole implements Serializable {
 
+    static mapWith = "mongo"
+
     User user
     Role role
 

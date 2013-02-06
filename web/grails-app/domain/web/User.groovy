@@ -2,10 +2,14 @@ package web
 
 class User {
 
+    static mapWith = "mongo"
+
     transient springSecurityService
 
     String username
     String password
+    String email
+    String town
     boolean enabled
     boolean accountExpired
     boolean accountLocked
