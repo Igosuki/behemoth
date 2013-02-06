@@ -1,7 +1,6 @@
 package fr.xebia.xke
 
 import ncsa.hdf.hdf5lib.exceptions.HDF5Exception
-//import ncsa.hdf.hdf5lib.*
 import ncsa.hdf.object.HObject
 import ncsa.hdf.object.Datatype
 import ncsa.hdf.object.Dataset
