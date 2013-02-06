@@ -55,6 +55,8 @@ modules = {
 
         resource url: 'js/ng/module.js'
 
+        resource url : "/js/ng/utils/angular-cookies${min}.js"
+
         allJsUnder('/js/ng/services').each {
             resource url: it
         }

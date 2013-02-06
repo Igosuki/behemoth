@@ -1,7 +1,7 @@
 /**
  * The main scaffolding module.
  */
-var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService', 'ui']);
+var scaffoldingModule = angular.module('scaffolding', ['grailsService', 'flashService', 'ui', 'ngCookies']);
 
 scaffoldingModule.value('ui.config', {});
 

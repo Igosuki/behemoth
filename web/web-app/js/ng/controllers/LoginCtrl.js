@@ -12,3 +12,4 @@ function LoginController($scope, $http, $cookies, authService) {
         });
     }
 }
+LoginController.$inject = ["$cookies"]
