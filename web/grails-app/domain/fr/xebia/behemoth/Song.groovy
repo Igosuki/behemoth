@@ -14,14 +14,20 @@ class Song {
 
     Float hotness
 
+    Artist getArtistEntity () {
+        Artist.get(artist['_id'])
+    }
+
     String getArtistId() {
         artist['_id']
     }
 
-    static constraints = {
+    String getArtistName() {
+        artist['name']
     }
 
-
+    static constraints = {
+    }
 
     static mapping = {
         collection "songs"
