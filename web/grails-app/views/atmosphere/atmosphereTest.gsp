@@ -14,7 +14,8 @@
                    if (data.length > 0) {
                         try {
                             var msgObj = jQuery.parseJSON(data);
-                            alert(msgObj.user)
+                            alert(msgObj.user+' '+msgObj.action)
+                            $("#allUsersEvent").append('<p>'+msgObj.user+' '+msgObj.action+'</p>')
 
 
                             $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
@@ -33,6 +34,9 @@
     </r:script>
 </head>
 <body>
+<div id="allUsersEvent">
+ this is my div
+</div>
 
 </body>
 </html>
