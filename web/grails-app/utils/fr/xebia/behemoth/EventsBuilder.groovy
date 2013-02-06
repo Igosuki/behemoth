@@ -36,6 +36,17 @@ class EventsBuilder {
             venue.address = it.venue_address
             event.venue = venue
 
+            def performers = []
+            it.performers[0].performer.each {
+                Performer performer = new Performer()
+                performer.id = it.id
+                performer.url = it.url
+                performer.name = it.name
+                performer.shortBio = it.short_bio
+                performers.add(performer)
+            }
+            event.performers = performers
+
             events.add(event)
         }
 
