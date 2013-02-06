@@ -2,6 +2,7 @@ import grails.converters.JSON
 import web.Author
 import web.Book
 import web.BookMongo
+import web.User
 import web.json.recipe.CustomObjectMarshallers
 
 class BootStrap {
@@ -30,6 +31,9 @@ class BootStrap {
         new Book(title: 'Neuromancer', author: 'William Gibson').save()
 
         new Author(firstName: 'William', lastName: 'Gibson', birthday: new Date()).save()
+
+        new User(accountExpired: false, accountLocked: false, email: "toto@toto.com", enabled: true, town: "Paris",
+        passwordExpired: false, password: "toto")
 
         try {
             if (BookMongo.count() == 0) {

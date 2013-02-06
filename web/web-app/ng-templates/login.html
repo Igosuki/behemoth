@@ -2,50 +2,31 @@
     <div id="login-holder">
         <div id="login-inner" ng-controller="LoginController">
             <form id='loginForm' class='cssform' data-ng-submit="submit()">
-                <p>
-                    <label for='username'>Username :</label>
-                    <input type='text' class='text_' name='j_username' id='username' required data-ng-model="item.j_username"/>
-                </p>
-
-                <p>
-                    <label for='password'>Password </label>
-                    <input type='password' class='text_' name='j_password' id='password' required data-ng-model="item.j_password"/>
-                </p>
-
-                <p id="remember_me_holder">
-                    <input type='checkbox' class='chk' name='rememberMeParameter' id='remember_me' data-ng-model="item._spring_security_remember_me">
-                    <label for='remember_me'>Remember me</label>
-                </p>
-
+                <div class="control-group" data-ng-class="{error: errors.j_username}">
+                    <label class="control-label" for="j_username">Username</label>
+                    <div class="controls">
+                        <input type="text" id="j_username" name="j_username" required data-ng-model="item.j_username">
+                        <span class="help-inline" data-ng-show="errors.j_username">{{errors.j_username}}</span>
+                    </div>
+                </div>
+                <div class="control-group" data-ng-class="{error: errors.j_password}">
+                    <label class="control-label" for="j_password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="j_password" name="j_password" required data-ng-model="item.j_password">
+                        <span class="help-inline" data-ng-show="errors.j_password">{{errors.j_password}}</span>
+                    </div>
+                </div>
+                <div class="control-group" data-ng-class="{error: errors.j_username}">
+                    <label class="control-label" for="j_username">Birthday</label>
+                    <div class="controls" id="remember_me_holder">
+                        <input type='checkbox' class='chk' name='_spring_security_remember_me' id='remember_me' data-ng-model="item._spring_security_remember_me" />
+                        <label for='remember_me'>Remember me</label>
+                    </div>
+                </div>
                 <p>
                     <input type='submit' id="submit" value='Login'/>
                 </p>
             </form>
         </div>
-    </div>
-</div>
-
-<div class="control-group" data-ng-class="{error: errors.birthday}">
-    <label class="control-label" for="birthday">Birthday</label>
-    <div class="controls">
-        <input type="text" id="birthday" name="birthday" required data-ng-model="item.birthday" ui-date>
-        <div data-ng-model="item.birthday"></div>
-        <span class="help-inline" data-ng-show="errors.birthday">{{errors.birthday}}</span>
-    </div>
-</div>
-
-<div class="control-group" data-ng-class="{error: errors.firstName}">
-    <label class="control-label" for="firstName">First Name</label>
-    <div class="controls">
-        <input type="text" id="firstName" name="firstName" required data-ng-model="item.firstName">
-        <span class="help-inline" data-ng-show="errors.firstName">{{errors.firstName}}</span>
-    </div>
-</div>
-
-<div class="control-group" data-ng-class="{error: errors.lastName}">
-    <label class="control-label" for="lastName">Last Name</label>
-    <div class="controls">
-        <input type="text" id="lastName" name="lastName" required data-ng-model="item.lastName">
-        <span class="help-inline" data-ng-show="errors.lastName">{{errors.lastName}}</span>
     </div>
 </div>
