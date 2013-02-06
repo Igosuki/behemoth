@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" ng-controller="ProfileController">
     <div class="span4">
         <h2>Vos artistes</h2>
 
@@ -19,6 +19,12 @@
             Soyez informés, en temps réel, de l'activité des autres fans.
             Localiser les autres fans de vos artistes.
         </p>
+
+        <ul>
+            <li data-ng-repeat="artist in artistList">
+                {{artist.name}}
+            </li>
+        </ul>
 
         <p><a class="btn" href="#">Je veux</a></p>
     </div>
