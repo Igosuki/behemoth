@@ -7,7 +7,6 @@ class SongsController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def allUsersActionsService
 
     def index() { }
 
@@ -24,9 +23,6 @@ class SongsController {
         } else {
             notFound params.id
         }
-
-        //def service = new AllUsersActionsService()
-        allUsersActionsService.registerEvent(new AllUsersEvent('Unknown', 'DETAIL', 'SONG'))
     }
 
     def complete() {
