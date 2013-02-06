@@ -41,6 +41,31 @@ scaffoldingModule.config([
     }
 ]);
 
+scaffoldingModule.directive('loginApp', function() {
+    return {
+        restrict: 'C',
+        link: function(scope, elem, attrs) {
+            //once Angular is started, remove class:
+            elem.removeClass('waiting-for-angular');
+
+            var login = elem.find('#login-holder');
+            var main = elem.find('#main-content');
+
+            login.hide();
+
+            scope.$on('event:auth-loginRequired', function() {
+                login.slideDown('slow', function() {
+                    main.hide();
+                });
+            });
+            scope.$on('event:auth-loginConfirmed', function() {
+                main.show();
+                login.slideUp();
+            });
+        }
+    }
+});
+
 /**
  * A directive for including menu pills
  */
