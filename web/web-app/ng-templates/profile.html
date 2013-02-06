@@ -10,6 +10,11 @@
             <h2>Vos artistes préférés</h2>
 
 
+            <ul>
+                <li data-ng-repeat="artist in artistList">
+                    {{artist.name}}
+                </li>
+            </ul>
         </div>
 
         <div class="span4">
@@ -19,11 +24,6 @@
                 Accéder à la liste des concerts de vos artistes préférés, via notre application de géolocalisation.
             </p>
 
-            <ul>
-                <li data-ng-repeat="artist in artistList">
-                    {{artist.name}}
-                </li>
-            </ul>
 
             <p><a class="btn" href="#">Je veux</a></p>
         </div>
