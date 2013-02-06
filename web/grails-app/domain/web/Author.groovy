@@ -2,6 +2,8 @@ package web
 
 class Author {
 
+    static mapWith = "mongo"
+
     static constraints = {
     }
 
