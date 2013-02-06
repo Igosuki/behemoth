@@ -1,5 +1,7 @@
 package fr.xebia.behemoth
 
+import web.User
+
 class UserPreferenceController {
 
     def badgeService
@@ -11,12 +13,34 @@ class UserPreferenceController {
         // TODO render page
     }
 
-    def addArtists(Artist artist) {
+    def likeArtist() {
+
+        String id = params.id
+
+        println "ID = $id"
+
+        Artist artist = Artist.get(id)
+
+        if (!artist) {
+            return render(status: 404)
+        }
+
+        def principal = springSecurityService.getPrincipal()
+        println "principal = $principal"
+
+        new UserLike(artist: artist, user: principal).save()
+
         allUsersActionsService.registerEvent(new AllUsersEvent(springSecurityService.currentUser.username, "a ajouté "+ artist.name, "ARTIST"))
+
+
+
         springSecurityService.currentUser.favouriteArtists << artist
+
         def newBadges = badgeService.checkBadgeOnAdd(artist);
-        // TODO save user
-        // TODO render page
+
+        springSecurityService.currentUser.save()
+
+        render (status: 200)
     }
 
 
