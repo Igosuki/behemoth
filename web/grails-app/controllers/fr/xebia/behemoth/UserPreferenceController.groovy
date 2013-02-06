@@ -12,7 +12,7 @@ class UserPreferenceController {
     }
 
     def addArtists(Artist artist) {
-        allUsersActionsService.registerEvent(new AllUsersEvent(springSecurityService.currentUser.username, "a ajouté "+ artist.name))
+        allUsersActionsService.registerEvent(new AllUsersEvent(springSecurityService.currentUser.username, "a ajouté "+ artist.name, "ARTIST"))
         springSecurityService.currentUser.favouriteArtists << artist
         def newBadges = badgeService.checkBadgeOnAdd(artist);
         // TODO save user
