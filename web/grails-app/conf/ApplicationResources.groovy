@@ -30,13 +30,15 @@ modules = {
 
         dependsOn('bootstrap-responsive-css')
         dependsOn('bootstrap-modal')
+        dependsOn('atmosphere')
+        dependsOn 'jquery, jquery-ui'
 
         resource url: 'css/app.css'
 
         resource url: "js/angular${min}.js"
         resource url: "js/angular-resource${min}.js"
 
-        dependsOn 'jquery, jquery-ui'
+
         
     }
 

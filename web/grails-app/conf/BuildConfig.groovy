@@ -68,6 +68,8 @@ grails.project.dependency.resolution = {
         compile ':mongodb:1.1.0.GA'
         compile ":spring-security-core:1.2.7.3"
 
+        compile ":atmosphere:0.4.2.1"
+
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
