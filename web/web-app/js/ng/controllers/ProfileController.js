@@ -8,5 +8,10 @@ function ProfileController($scope, $route, $routeParams, $location, $resource) {
         $location.path($routeParams.domain + '/artist/' + artistId);
     };
 
-    $scope.artistList = [{name:'artiste1'}, {name:'artiste2'}, {name:'artiste3'}];
+
+
+    var Artist = $resource(CTX + '/userPreference/myLikes', {},
+        {complete: {method: 'GET', isArray: true}} );
+
+    $scope.artistList = Artist.complete();
 }

@@ -12,7 +12,7 @@ function SearchController($scope, $route, $routeParams, $location, $resource) {
         var Checker = $resource(CTX + '/userPreference/likeArtist',
             {id: artistId},
             {});
-        Checker.save();
+        Checker.get();
     };
 
     $scope.search = function() {

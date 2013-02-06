@@ -10,7 +10,7 @@ class UserPreferenceController {
     def allUsersActionsService
 
     def listArtists() {
-        def result  = springSecurityService.currentUser.favouriteArtists
+        def result = springSecurityService.currentUser.favouriteArtists
         // TODO render page
     }
 
@@ -28,15 +28,11 @@ class UserPreferenceController {
 
         def principal = springSecurityService.getPrincipal()
 
-
-        println "principal = $principal"
         def user = User.get(principal.id)
 
         new UserLike(artistId: artist.id, userId: user.id).save()
 
-        allUsersActionsService.registerEvent(new AllUsersEvent(springSecurityService.currentUser.username, "a ajouté "+ artist.name, "ARTIST"))
-
-
+        allUsersActionsService.registerEvent(new AllUsersEvent(springSecurityService.currentUser.username, "a ajouté " + artist.name, "ARTIST"))
 
         springSecurityService.currentUser.favouriteArtists << artist
 
@@ -44,18 +40,18 @@ class UserPreferenceController {
 
         springSecurityService.currentUser.save()
 
-        render (status: 200)
+        render(status: 200)
     }
 
     def myLikes() {
         def user = User.get(springSecurityService.principal.id)
-        def myLikes = UserLike.findByUserId("${user.id}")
+        def myLikes = UserLike.findAllByUserId("${user.id}")
 
         def myArtists = myLikes.collect {
             Artist.get(it.artistId)
-        }
+        }.unique()
 
-render myArtists as JSON
+        render myArtists as JSON
     }
 
 
