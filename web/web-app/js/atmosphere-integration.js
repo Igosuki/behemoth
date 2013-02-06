@@ -5,10 +5,14 @@ $(document).ready(function () {
             var data = response.responseBody;
             if (data.length > 0) {
                 try {
+                    i ++;
                     var msgObj = jQuery.parseJSON(data);
-                    alert(msgObj.user + ' ' + msgObj.action)
-                    $("#allUsersEvent").append('<p>' + msgObj.user + ' ' + msgObj.action + '</p>')
-
+                    var remove = i
+                    remove -= 5
+                    $("#allUsersEvent").prepend('<p id="event'+i+'" style="display:none">' + msgObj.user + ' ' + msgObj.action + '</p>')
+                    $("#event"+remove).fadeOut("slow");
+                    $("#event"+i).fadeIn("slow");
+                    $("#event"+remove).remove();
 
                     $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
 
@@ -19,7 +23,7 @@ $(document).ready(function () {
             }
         }
     }
-
+    var i=0
     var location = CTX + '/atmosphere/allusers/actions';
     $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
 });
