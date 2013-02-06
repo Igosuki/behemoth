@@ -22,6 +22,9 @@ class SongsController {
         } else {
             notFound params.id
         }
+
+        def service = new AllUsersActionsService()
+        service.registerEvent(new AllUsersEvent('Unknown', 'DETAIL', 'SONG'))
     }
 
     def complete() {
