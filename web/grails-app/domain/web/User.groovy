@@ -10,6 +10,9 @@ class User {
     String password
     String email
     String town
+
+
+
     boolean enabled
     boolean accountExpired
     boolean accountLocked

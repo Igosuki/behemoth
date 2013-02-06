@@ -3,21 +3,25 @@
         <input type="text" data-ng-model="complete" data-ng-change="search()">
         <button type="submit" class="btn">Search</button>
     </form>
-    <h1>Artists</h1>
-    <ul>
-        <li data-ng-repeat="artist in artistList">
+    <div data-ng-show="artistList.length">
+        <h1>Artists</h1>
+        <ul>
+            <li data-ng-repeat="artist in artistList">
             <span class="artist">
                 <a ng-click="checkDetails(artist.id)">
                     {{artist.name}}
                 </a>
             </span>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
+    <div data-ng-hide="artistList.length">Pas d'artistes</div>
+    <div data-ng-show="songList.length">
     <h1>Songs</h1>
     <ul>
         <li data-ng-repeat="song in songList">
             <span class="song">{{song.title}}</span>
-            <strong>by</strong>
+            <strong>par</strong>
             <span class="artist">
                 <a ng-click="checkDetails(song.artist.id)">
                     {{song.artist.name}}
@@ -25,4 +29,6 @@
             </span>
         </li>
     </ul>
+    </div>
+    <div data-ng-hide="songList.length">Pas de chansons</div>
 </div>

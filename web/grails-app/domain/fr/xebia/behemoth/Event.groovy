@@ -12,6 +12,7 @@ class Event {
     Float latitude
     Float longitude
     String imageUrl
+    List<Performer> performers
 
     static constraints = {
     }

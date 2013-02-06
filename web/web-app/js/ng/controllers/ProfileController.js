@@ -7,4 +7,6 @@ function ProfileController($scope, $route, $routeParams, $location, $resource) {
     $scope.checkDetails = function(artistId){
         $location.path($routeParams.domain + '/artist/' + artistId);
     };
+
+    $scope.artistList = [{name:'artiste1'}, {name:'artiste2'}, {name:'artiste3'}];
 }
