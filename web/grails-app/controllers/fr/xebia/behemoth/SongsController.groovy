@@ -7,7 +7,7 @@ class SongsController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {}
+    def index() { }
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -15,7 +15,7 @@ class SongsController {
         render Song.list(params) as JSON
     }
 
-    def get() {
+    def detail() {
         def songInstance = Song.get(params.id)
         if (songInstance) {
             render songInstance as JSON

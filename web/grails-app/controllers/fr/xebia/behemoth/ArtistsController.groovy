@@ -16,7 +16,7 @@ class ArtistsController {
     }
 
 
-    def get() {
+    def detail() {
         def artistInstance = Artist.get(params.id)
         if (artistInstance) {
             render artistInstance as JSON
