@@ -9,5 +9,6 @@ class Term {
     Float weight
 
     static constraints = {
+        name attr:'term'
     }
 }

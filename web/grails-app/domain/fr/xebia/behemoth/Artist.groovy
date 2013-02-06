@@ -26,11 +26,11 @@ class Artist {
 
     static embedded = ['terms', 'similarArtists']
 
-        static mapping = {
-            collection "artists"
-            hotness attr:'hotttnesss'
-            sevenDigitalId attr:'7digitalid'
-        }
+    static mapping = {
+        collection "artists"
+        hotness attr:'hotttnesss'
+        sevenDigitalId attr:'7digitalid'
+    }
 
     static constraints = {
     }
