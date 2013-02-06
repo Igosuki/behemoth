@@ -33,7 +33,7 @@ class BootStrap {
         new Author(firstName: 'William', lastName: 'Gibson', birthday: new Date()).save()
 
         new User(accountExpired: false, accountLocked: false, email: "toto@toto.com", enabled: true, town: "Paris",
-        passwordExpired: false, password: "toto", username: "toto")
+        passwordExpired: false, password: "toto", username: "toto").save()
 
         try {
             if (BookMongo.count() == 0) {
