@@ -1,9 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-SEARCH
-</body>
-</html>
+<div ng-controller="SearchController">
+    <form data-ng-submit="search()">
+        <input type="text" data-ng-model="complete" data-ng-change="search()">
+        <button type="submit" class="btn">Search</button>
+    </form>
+    <h1>Artists</h1>
+    <ul>
+        <li data-ng-repeat="artist in artistList">
+            <span class="artist">
+                <a ng-click="checkDetails(artist.id)">
+                    {{artist.name}}
+                </a>
+            </span>
+        </li>
+    </ul>
+    <h1>Songs</h1>
+    <ul>
+        <li data-ng-repeat="song in songList">
+            <span class="song">{{song.title}}</span>
+            <strong>by</strong>
+            <span class="artist">
+                <a ng-click="checkDetails(song.artist.id)">
+                    {{song.artist.name}}
+                </a>
+            </span>
+        </li>
+    </ul>
+</div>
