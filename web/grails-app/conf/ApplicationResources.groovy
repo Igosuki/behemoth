@@ -26,6 +26,11 @@ def min = GrailsUtil.isDevelopmentEnv() ? '' : '.min'
 
 modules = {
 
+    login {
+        dependsOn('bootstrap-responsive-css')
+
+        resource url: 'css/app.css'
+    }
     application {
 
         dependsOn('bootstrap-responsive-css')

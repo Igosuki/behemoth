@@ -18,14 +18,50 @@
         var CTX = '${request.contextPath}';
     </script>
 
-    <r:require module="application"/>
+    <r:require module="login"/>
 
     <r:layoutResources/>
 </head>
 
 <body>
 
-<g:layoutBody />
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+
+            <a class="brand" ng-click="$location.path('/home')">
+                <span class="simran">Behemoth
+                <r:img uri="/images/pentagram-16px-neg.png"/>
+                Records</span>
+            </a>
+
+            <div class="navbar-form pull-right">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="mainview">
+    <div class="container">
+
+    <div class="hero-unit home-big">
+        <div class="center">
+            <h1 class="simran">You Are What You Listen</h1>
+
+            <p>
+                Rapprochez vous de vos artistes
+            </p>
+        </div>
+    </div>
+
+    <g:layoutBody />
+    </div>
+</div>
+
+
 
 <footer>
     <p class="simran">Behemoth Team | xke 2013.02</p>
@@ -33,3 +69,4 @@
 <r:layoutResources/>
 </body>
 </html>
+
