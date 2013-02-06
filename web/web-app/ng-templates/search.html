@@ -4,31 +4,33 @@
         <button type="submit" class="btn">Search</button>
     </form>
     <div data-ng-show="artistList.length">
-        <h1>Artists</h1>
-        <ul>
-            <li data-ng-repeat="artist in artistList">
-            <span class="artist">
-                <a ng-click="checkDetails(artist.id)">
+        <table class="table table-hover span6">
+            <thead>
+                <th>Artiste</th>
+                <th></th>
+            </thead>
+            <tr data-ng-repeat="artist in artistList">
+                <td><a ng-click="checkDetails(artist.id)">
                     {{artist.name}}
-                </a>
-            </span>
-            </li>
-        </ul>
+                </a></td>
+                <td><a data-ng-click="like(artist.id)"><i class="icon-star"></i></a></td>
+            </tr>
+        </table>
     </div>
     <div data-ng-hide="artistList.length">Pas d'artistes</div>
     <div data-ng-show="songList.length">
-    <h1>Songs</h1>
-    <ul>
-        <li data-ng-repeat="song in songList">
-            <span class="song">{{song.title}}</span>
-            <strong>par</strong>
-            <span class="artist">
-                <a ng-click="checkDetails(song.artist.id)">
+        <table class="table table-hover span6">
+            <thead>
+            <th>Chanson</th>
+            <th></th>
+            </thead>
+            <tr data-ng-repeat="song in songList">
+                <td><a ng-click="checkDetails(song.artist.id)">
                     {{song.artist.name}}
-                </a>
-            </span>
-        </li>
-    </ul>
+                </a></td>
+                <td><a data-ng-click="like(song.artist.id)"><i class="icon-star"></i></a></td>
+            </tr>
+        </table>
     </div>
     <div data-ng-hide="songList.length">Pas de chansons</div>
 </div>
