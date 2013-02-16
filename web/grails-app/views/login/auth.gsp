@@ -22,12 +22,13 @@
 
             <div class="center">
                 <button class="btn btn-primary" type="submit" class="btn">Se connecter</button>
+                &nbsp;&nbsp;<g:link controller="register" action="index">
+                    <button class="btn btn-primary" type="submit" class="btn">S'enregistrer</button>
+                </g:link>
             </div>
         </fieldset>
     </form>
-    <g:link controller="register" action="index">
-        <button class="btn btn-primary" type="submit" class="btn">S'enregistrer</button>
-    </g:link>
+
 </div>
 
 

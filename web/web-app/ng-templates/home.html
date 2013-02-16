@@ -6,7 +6,7 @@
             Rapprochez vous de vos artistes
         </p>
 
-        <a class="btn btn-primary btn-large">C'est parti !</a>
+        <a class="btn btn-primary btn-large" ng-href="#/search">C'est parti !</a>
     </div>
 </div>
 
@@ -20,13 +20,7 @@
             Localiser les autres fans de vos artistes.
         </p>
 
-        <ul>
-            <li data-ng-repeat="artist in artistList">
-                {{artist.name}}
-            </li>
-        </ul>
-
-        <p><a class="btn" href="#">Je veux</a></p>
+        <p><a class="btn" ng-href="#/profile">Je veux</a></p>
     </div>
 
     <div class="span4">
@@ -36,7 +30,7 @@
             Accéder à la liste des concerts de de vos artistes préférés, via notre application de géolocalisation.
         </p>
 
-        <p><a class="btn" href="#">Je veux</a></p>
+        <p><a class="btn" ng-href="#/profile">Je veux</a></p>
     </div>
     <div class="span4">
         <h2>Vos badges</h2>
@@ -47,14 +41,21 @@
             Révélez votre personnalité musicale.
         </p>
 
-        <p><a class="btn" href="#">Moi, moi, moi</a></p>
+
+        <p><a class="btn" ng-click="$location.path('/badges')">Moi je veuuuux</a></p>
+
     </div>
 
 
 </div>
 
 <div class="row">
+    <h3>En ce moment sur Behemoth Records</h3>
     <div class="span4" id="allUsersEvent">
-        this is my div
+        <p id="event-0">&nbsp;</p>
+        <p id="event-1">&nbsp;</p>
+        <p id="event-2">&nbsp;</p>
+        <p id="event-3">&nbsp;</p>
+        <p id="event-4">&nbsp;</p>
     </div>
 </div>
