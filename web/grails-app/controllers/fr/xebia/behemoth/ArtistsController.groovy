@@ -44,4 +44,22 @@ class ArtistsController {
         def responseJson = [message: message(code: 'default.not.found.message', args: [message(code: 'artist.label', default: 'Artist'), params.id])]
         render responseJson as JSON
     }
+
+    private void userLikeNotFound(id) {
+        response.status = SC_NOT_FOUND
+        def responseJson = [message: message(code: 'default.not.found.message', args: [message(code: 'userLike.label', default: 'User Likes'), params.id])]
+        render responseJson as JSON
+    }
+
+    def likes(String id) {
+        def artistInstance = Artist.get(id)
+
+        if (artistInstance) {
+            def usersThatLikeArtist = UserLike.findByArtist(artistInstance)
+            if (usersThatLikeArtist ) render usersThatLikeArtist as JSON
+            else userLikeNotFound(id)
+        } else {
+            notFound params.id
+        }
+    }
 }

@@ -1,6 +1,16 @@
 <div ng-controller="MapController">
 <div id="mainMap">Interactive Map</div>
-
+<div id="locationSearch">
+    <form>
+        <input type="text" id=""locationSearchTerm data-ng-model="locationSearchTerm" />
+        <button type="submit" class="btn" data-ng-click="searchLocation()">Search</button>
+    </form>
+    <ul>
+    <div data-ng-repeat="event in eventsByLocation">
+        <li>{{event.title}}</li>
+    </div>
+    </ul>
+</div>
 <!-- Giving the div an id="map_canvas" fix problems with twitter bootstrap affecting
 google maps -->
 <div id="map_canvas" ui-map="myMap" class="map"

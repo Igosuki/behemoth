@@ -1,4 +1,4 @@
-function MapController($scope, $route, $routeParams, $location, Grails, Flash) {
+function MapController($scope, $route, $routeParams, $location, Grails, Flash, $resource) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
@@ -8,6 +8,17 @@ function MapController($scope, $route, $routeParams, $location, Grails, Flash) {
     }
 
     $scope.myMarkers = [];
+
+    $scope.eventsByLocation = [];
+
+    $scope.locationSearchTerm = "Paris";
+
+    $scope.searchLocation = function() {
+        var Events = $resource(CTX+'/events/searchByLocation', {},
+            {complete: {method: 'GET', isArray: true, params: {'location': $scope.locationSearchTerm}}});
+        $scope.eventsByLocation = Events.complete();
+    }
+
 
     $scope.mapOptions = {
         center: new google.maps.LatLng(35.784, -78.670),
