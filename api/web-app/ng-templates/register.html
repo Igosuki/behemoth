@@ -1,0 +1,23 @@
+<div class="control-group" data-ng-class="{error: errors.birthday}">
+    <label class="control-label" for="birthday">Birthday</label>
+    <div class="controls">
+        <input type="text" id="birthday" name="birthday" required data-ng-model="item.birthday">
+        <span class="help-inline" data-ng-show="errors.birthday">{{errors.birthday}}</span>
+    </div>
+</div>
+
+<div class="control-group" data-ng-class="{error: errors.firstName}">
+    <label class="control-label" for="firstName">First Name</label>
+    <div class="controls">
+        <input type="text" id="firstName" name="firstName" required data-ng-model="item.firstName">
+        <span class="help-inline" data-ng-show="errors.firstName">{{errors.firstName}}</span>
+    </div>
+</div>
+
+<div class="control-group" data-ng-class="{error: errors.lastName}">
+    <label class="control-label" for="lastName">Last Name</label>
+    <div class="controls">
+        <input type="text" id="lastName" name="lastName" required data-ng-model="item.lastName">
+        <span class="help-inline" data-ng-show="errors.lastName">{{errors.lastName}}</span>
+    </div>
+</div>

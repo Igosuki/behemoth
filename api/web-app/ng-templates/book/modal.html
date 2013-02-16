@@ -1,0 +1,12 @@
+<div id="bookModal" class="fade ng-valid modal hide ng-dirty" ui-modal="" ng-model="modalBookShown" style="display: block;">
+    <div class="modal-header"><h1>Create Book</h1></div>
+
+    <form name="form" data-ng-submit="save(item)" class="form-horizontal">
+        <div class="modal-body">
+            <ng-include src="'ng-templates/book/_form.html'"></ng-include>
+        </div>
+        <div class="modal-footer form-actions">
+            <button type="submit" class="btn btn-primary" data-ng-disabled="form.$invalid" ng-click="modalBookShown=false">Create</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<ul class="nav nav-pills">
+    <li ng-class="{active: $location.path()==='/'+ $domain || $location.path()=='/'+$domain/list}">
+        <a ng-href="#/{{$domain}}">List </a>
+    </li>
+    <li ng-class="{active: $location.path() == '/'+$domain+'/create'}">
+        <a ng-href="#/{{$domain}}/create">New {{$domain}}</a>
+    </li>
+    <li ng-class="{active: $location.path() == '/'+$domain+'/#'+$domain+'Modal'}">
+        <a data-toggle="modal" ng-href="#{{$domain}}Modal">New {{$domain}} (Modal)</a>
+    </li>
+</ul>
